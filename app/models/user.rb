@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :zwipps, dependent: :destroy
+  has_many :faved_zwipps, class_name: 'Fave', dependent: :destroy
+
   validates :username, :email, presence: true, uniqueness: true
   validates :username, length: { maximum: 24 }
   validates :email, format: {
