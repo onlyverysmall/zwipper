@@ -12,7 +12,28 @@
  *
  */
 
+ $gray-base:             #243B4A !default;
+
+ $brand-primary:         darken(#533A7B, 6.5%) !default; // #533A7B
+ $brand-success:         #478978 !default;
+ $brand-info:            #87BCDE !default;
+ $brand-warning:         #f0ad4e !default;
+ $brand-danger:          #d9534f !default;
+
+ $navbar-inverse-bg:  $brand-primary !default;
+
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body {
+  padding-top: 100px;
+}
+
+.container {
+  max-width: 768px;
+}
+
+.list-group-item > .follow {
+  float: none;
+}

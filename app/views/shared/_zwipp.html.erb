@@ -1,0 +1,22 @@
+<!-- build individual zwipps -->
+
+<p class="list-group-item-text">
+  <!-- TODO: make this ajax-y for better experience -->
+  <%- if user_signed_in? %>
+    <%- if faves_zwipp? %>
+      <%= button_to "unfave", faves_path, method: :delete, params: { zwipp_id: @zwipp.id }, class: 'btn btn-default pull-right' %>
+    <%- else %>
+      <%= button_to "fave", faves_path, method: :post, params: { zwipp_id: @zwipp.id }, class: 'btn btn-default pull-right' %>
+    <%- end %>
+  <%- end %>
+  <%= link_to @user.username, user_path(@user) %>
+</p>
+
+<a href="<%= zwipp_path(@zwipp) %>" class="list-group-item">
+  <h4 class="list-group-item-heading"><%= @zwipp.text %></h4>
+  <span class="badge">
+    <%= @zwipp.faving_users.count %>
+    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+  </span>
+  <p class="list-group-item-text"><%= @zwipp.created_at.strftime("%b %e, %l:%M %p") %></p>
+</a>

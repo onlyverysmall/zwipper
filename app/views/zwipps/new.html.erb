@@ -1,12 +1,12 @@
 <h2>Get Zwippin'</h2>
 
 <%= form_for @zwipp do |f| %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :text %><br />
-    <%= f.text_field :text, autofocus: true %>
+    <%= f.text_field :text, autofocus: true, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Publish zwipp" %>
+  <div>
+    <%= f.submit "Publish zwipp", class: "btn btn-default" %>
   </div>
 <% end %>

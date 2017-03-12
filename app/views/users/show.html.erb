@@ -1,10 +1,18 @@
-<p><%= @user.username %></p>
-<p><%= @follower_count %> followers</p>
-<p><%= @followee_count %> following</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <!-- TODO: make this ajax-y for better experience -->
+    <%- if user_signed_in? && current_user != @user %>
+      <%- if follows_user?  %>
+        <%= button_to "unfollow #{ @user.username }", follows_path, method: :delete, params: { followee_id: @user.id }, class: 'btn btn-default pull-right' %>
+      <%- else %>
+        <%= button_to "follow #{ @user.username }", follows_path, method: :post, params: { followee_id: @user.id }, class: 'btn btn-default pull-right' %>
+      <%- end %>
+    <%- end %>
 
-<% @zwipps.each do |z| %>
-  <p>
-    <%= link_to z.user.username, user_path(z.user) %>
-    <%= link_to z.text, zwipp_path(z) %>
-  </p>
-<% end %>
+    <h4 class="list-group-item-heading"><%= @user.username %></h4>
+    <span class="badge follow"><%= @follower_count %> followers</span>
+    <span class="badge follow"><%= @followee_count %> following</span>
+  </li>
+</ul>
+
+<%= render 'shared/zwipp_list' %>

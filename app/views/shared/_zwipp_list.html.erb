@@ -1,0 +1,10 @@
+<!-- set up a list of zwipps -->
+
+<ul class="list-group">
+  <% @zwipps.each do |z| %>
+    <li class="list-group-item">
+      <%- @zwipp, @user = z, z.user %>
+      <%= render 'shared/zwipp' %>
+    </li>
+  <% end %>
+</ul>

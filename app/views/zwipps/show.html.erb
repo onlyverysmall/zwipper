@@ -1,8 +1,7 @@
-<p><%= @user.username %></p>
-<p><%= @faves %> &lt;3</p>
-<p><%= @zwipp.text %></p>
-
+<ul class="list-group">
+  <%= render "shared/zwipp" %>
+</ul>
 
 <%- if user_signed_in? && current_user == @user %>
-  <%= link_to 'delete post', zwipp_path, method: :delete %><br />
+  <%= button_to 'delete zwipp', zwipp_path(@zwipp), method: :delete, class: 'btn btn-default' %>
 <%- end %>
