@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: :show
 
+  resources :zwipps, only: [:new, :create, :show, :destroy]
 
   delete 'follows', to: 'follows#destroy', via: :delete
   resources :follows, only: :create

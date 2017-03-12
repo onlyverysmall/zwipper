@@ -7,7 +7,7 @@ RSpec.describe "Faves", type: :request do
     sign_in @user
   end
 
-  describe "GET #create" do
+  describe "POST #create" do
     it "returns http success" do
       expect {
         post faves_path, { zwipp_id: @zwipp.id }
@@ -16,7 +16,7 @@ RSpec.describe "Faves", type: :request do
     end
   end
 
-  describe "GET #destroy" do
+  describe "DELETE #destroy" do
     it "returns http success" do
       create :fave, user: @user, zwipp: @zwipp
 

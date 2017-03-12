@@ -1,0 +1,8 @@
+<p><%= @user.username %></p>
+<p><%= @faves %> &lt;3</p>
+<p><%= @zwipp.text %></p>
+
+
+<%- if user_signed_in? && current_user == @user %>
+  <%= link_to 'delete post', zwipp_path, method: :delete %><br />
+<%- end %>

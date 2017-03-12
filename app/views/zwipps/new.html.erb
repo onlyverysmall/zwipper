@@ -1,0 +1,12 @@
+<h2>Get Zwippin'</h2>
+
+<%= form_for @zwipp do |f| %>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_field :text, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Publish zwipp" %>
+  </div>
+<% end %>
