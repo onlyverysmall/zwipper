@@ -4,4 +4,9 @@ class Zwipp < ActiveRecord::Base
 
   validates :user, :text, presence: true
   validates :text, length: { in: 1..140 }
+
+  scope :feed_for, ->(user) {
+    where(user_id: user.followees.pluck(:id))
+    .order(created_at: :desc)
+  }
 end
