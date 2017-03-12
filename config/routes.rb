@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   delete 'follows', to: 'follows#destroy', via: :delete
   resources :follows, only: :create
 
-  delete 'faves', to: 'faves#destroy', via: :delete
+  delete 'faves', to: 'faves#destroy', via: :delete, as: 'faves'
   resources :faves, only: :create
 end

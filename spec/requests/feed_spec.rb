@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe FeedController, type: :controller do
+RSpec.describe "Feed", type: :request do
   describe "GET #index" do
     it "returns http success" do
-      get :index
+      get root_path
       expect(response).to have_http_status :redirect
       expect(response).to redirect_to user_session_path
     end
@@ -12,7 +12,7 @@ RSpec.describe FeedController, type: :controller do
       before { sign_in create :user }
 
       it "returns http success" do
-        get :index
+        get root_path
         expect(response).to have_http_status :success
         expect(response).to render_template :index
       end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FollowsController, type: :controller do
-
+RSpec.describe "Follows", type: :request do
   before do
     @user = create :user
     @followee = create :user
@@ -11,7 +10,7 @@ RSpec.describe FollowsController, type: :controller do
   describe "POST #create" do
     it "returns http success and creates the Follow" do
       expect {
-        post :create, { followee_id: @followee.id }
+        post follows_path, { followee_id: @followee.id }
       }.to change(Follow, :count).by(1)
       expect(response).to have_http_status(:success)
     end
@@ -22,10 +21,9 @@ RSpec.describe FollowsController, type: :controller do
       create :follow, follower: @user, followee: @followee
 
       expect {
-        delete :destroy, { followee_id: @followee.id }
+        delete follows_path, { followee_id: @followee.id }
       }.to change(Follow, :count).by(-1)
       expect(response).to have_http_status(:success)
     end
   end
-
 end

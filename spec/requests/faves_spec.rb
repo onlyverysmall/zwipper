@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FavesController, type: :controller do
-
+RSpec.describe "Faves", type: :request do
   before do
     @user = create :user
     @zwipp = create :zwipp
@@ -11,7 +10,7 @@ RSpec.describe FavesController, type: :controller do
   describe "GET #create" do
     it "returns http success" do
       expect {
-        post :create, { zwipp_id: @zwipp.id }
+        post faves_path, { zwipp_id: @zwipp.id }
       }.to change(Fave, :count).by(1)
       expect(response).to have_http_status(:success)
     end
@@ -22,10 +21,9 @@ RSpec.describe FavesController, type: :controller do
       create :fave, user: @user, zwipp: @zwipp
 
       expect {
-        delete :destroy, { zwipp_id: @zwipp.id }
+        delete faves_path, { zwipp_id: @zwipp.id }
       }.to change(Fave, :count).by(-1)
       expect(response).to have_http_status(:success)
     end
   end
-
 end
