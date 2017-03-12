@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def follows_user?
-    current_user != @user && current_user.followees.include?(@user)
+    current_user.followees.include?(@user)
   end
 end

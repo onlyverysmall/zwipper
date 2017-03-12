@@ -9,10 +9,11 @@ class ZwippsController < ApplicationController
     @zwipp = current_user.zwipps.create(zwipp_params)
 
     if @zwipp.save
+      flash[:info] = "Your zwipp is published!"
       redirect_to @zwipp
     else
-      flash.now[:error] = @zwipp.errors.full_messages.to_sentence
-      render @zwipp
+      flash.now[:danger] = @zwipp.errors.full_messages.to_sentence
+      render :new
     end
   end
 
@@ -25,10 +26,10 @@ class ZwippsController < ApplicationController
     @zwipp = Zwipp.find(params[:id])
 
     if @zwipp.destroy
-      flash[:notice] = 'Zwipp has been deleted'
+      flash[:info] = 'Zwipp has been deleted'
       redirect_to current_user
     else
-      flash.now[:error] = 'Zwipp could not be deleted'
+      flash.now[:danger] = 'Zwipp could not be deleted'
       render nothing: true, status: :bad_request
     end
   end
