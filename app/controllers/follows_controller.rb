@@ -5,8 +5,8 @@ class FollowsController < ApplicationController
     @follow = Follow.new(follower: current_user, followee: followee)
 
     if @follow.save
-      flash.now[:notice] = "You are now following #{ followee.username }"
-      render nothing: true, status: :ok
+      flash[:notice] = "You are now following #{ followee.username }"
+      redirect_to followee
     else
       flash.now[:error] = "Could not follow #{ followee.username }"
       render nothing: true, status: :bad_request
@@ -17,8 +17,8 @@ class FollowsController < ApplicationController
     @follow = Follow.find_by(follower: current_user, followee: followee)
 
     if @follow.destroy
-      flash.now[:notice] = "You are no longer following #{ followee.username }"
-      render nothing: true, status: :ok
+      flash[:notice] = "You are no longer following #{ followee.username }"
+      redirect_to followee
     else
       flash.now[:error] = "Could not unfollow #{ followee.username }"
       render nothing: true, status: :bad_request

@@ -12,7 +12,7 @@ RSpec.describe "Follows", type: :request do
       expect {
         post follows_path, { followee_id: @followee.id }
       }.to change(Follow, :count).by(1)
-      expect(response).to have_http_status(:success)
+      expect(response).to redirect_to @followee
     end
   end
 
@@ -23,7 +23,7 @@ RSpec.describe "Follows", type: :request do
       expect {
         delete follows_path, { followee_id: @followee.id }
       }.to change(Follow, :count).by(-1)
-      expect(response).to have_http_status(:success)
+      expect(response).to redirect_to @followee
     end
   end
 end

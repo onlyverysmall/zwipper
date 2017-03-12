@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :zwipps, dependent: :destroy
-  has_many :faved_zwipps, class_name: 'Fave', dependent: :destroy
+
+  has_many :faved_zwipps_assn, class_name: 'Fave', dependent: :destroy
+  has_many :faved_zwipps, through: :faved_zwipps_assn, source: 'zwipp'
 
   has_many :follower_assn, class_name: 'Follow', foreign_key: 'followee_id'
   has_many :followers, through: :follower_assn

@@ -12,13 +12,12 @@ class ZwippsController < ApplicationController
       redirect_to @zwipp
     else
       flash.now[:error] = @zwipp.errors.full_messages.to_sentence
-      render :new
+      render @zwipp
     end
   end
 
   def show
     @zwipp = Zwipp.find(params[:id])
-    @faves = @zwipp.faving_users.count
     @user = @zwipp.user
   end
 

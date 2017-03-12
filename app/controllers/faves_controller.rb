@@ -5,7 +5,7 @@ class FavesController < ApplicationController
     @fave = Fave.new(user: current_user, zwipp: zwipp)
 
     if @fave.save
-      render nothing: true, status: :ok
+      redirect_back
     else
       render nothing: true, status: :bad_request
     end
@@ -15,7 +15,7 @@ class FavesController < ApplicationController
     @fave = Fave.find_by(user: current_user, zwipp: zwipp)
 
     if @fave.destroy
-      render nothing: true, status: :ok
+      redirect_back
     else
       render nothing: true, status: :bad_request
     end
@@ -24,10 +24,18 @@ class FavesController < ApplicationController
   private
 
   def zwipp
-    Zwipp.find(zwipp_params)
+    @zwipp ||= Zwipp.find(zwipp_params)
   end
 
   def zwipp_params
     params.require(:zwipp_id)
+  end
+
+  def redirect_back
+    begin
+      redirect_to :back
+    rescue ActionController::RedirectBackError
+      redirect_to zwipp
+    end
   end
 end

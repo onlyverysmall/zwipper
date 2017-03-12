@@ -12,7 +12,7 @@ RSpec.describe "Faves", type: :request do
       expect {
         post faves_path, { zwipp_id: @zwipp.id }
       }.to change(Fave, :count).by(1)
-      expect(response).to have_http_status(:success)
+      expect(response).to redirect_to @zwipp
     end
   end
 
@@ -23,7 +23,7 @@ RSpec.describe "Faves", type: :request do
       expect {
         delete faves_path, { zwipp_id: @zwipp.id }
       }.to change(Fave, :count).by(-1)
-      expect(response).to have_http_status(:success)
+      expect(response).to redirect_to @zwipp
     end
   end
 end
