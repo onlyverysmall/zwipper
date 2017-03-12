@@ -1,1 +1,6 @@
-
+<% @zwipps.each do |z| %>
+  <p>
+    <%= link_to z.user.username, user_path(z.user) %>
+    <%= link_to z.text, zwipp_path(z) %>
+  </p>
+<% end %>
