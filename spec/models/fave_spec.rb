@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Fave, type: :model do
-  let(:user) { User.new(username: 'sally', email: 'sally@email.com') }
-  let(:zwipp) { Zwipp.new(user: user, text: 'some really great zwippy text!') }
-  subject { Fave.new(user: user, zwipp: zwipp) }
+  subject { build :fave }
 
   it { should belong_to :user }
   it { should belong_to :zwipp }

@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :followee_assn, class_name: 'Follow', foreign_key: 'follower_id'
   has_many :followees, through: :followee_assn
 
-  validates :username, :email, presence: true, uniqueness: true
+  validates :username, :email, presence: true, uniqueness: { case_sensitive: false }
   validates :username, length: { maximum: 24 }
   validates :email, format: {
     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,

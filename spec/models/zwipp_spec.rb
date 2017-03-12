@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Zwipp, type: :model do
-  let(:user) { User.new(username: 'sally', email: 'sally@email.com') }
-  subject { Zwipp.new(user: user, text: 'some really great zwippy text!') }
+  subject { build :zwipp }
 
   it { should belong_to :user }
   it { should have_many :faving_users }

@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 sally, bobby, susie, jimmy, katie = User.create([
-  { username: 'sally', email: 'sally@test.com' },
-  { username: 'bobby', email: 'bobby@test.com' },
-  { username: 'susie', email: 'susie@test.com' },
-  { username: 'jimmy', email: 'jimmy@test.com' },
-  { username: 'katie', email: 'katie@test.com' },
+  { username: 'sally', email: 'sally@test.com', password: 'testing' },
+  { username: 'bobby', email: 'bobby@test.com', password: 'testing' },
+  { username: 'susie', email: 'susie@test.com', password: 'testing' },
+  { username: 'jimmy', email: 'jimmy@test.com', password: 'testing' },
+  { username: 'katie', email: 'katie@test.com', password: 'testing' },
 ])
 
 sally.zwipps.create([
