@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe FollowsController, type: :controller do
+
   before do
     @user = create :user
     @followee = create :user
@@ -18,11 +19,13 @@ RSpec.describe FollowsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "returns http success and deletes the Follow" do
-      follow = create :follow, follower: @user, followee: @followee
+      create :follow, follower: @user, followee: @followee
+
       expect {
         delete :destroy, { followee_id: @followee.id }
       }.to change(Follow, :count).by(-1)
       expect(response).to have_http_status(:success)
     end
   end
+
 end
