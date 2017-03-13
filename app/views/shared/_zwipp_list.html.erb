@@ -1,10 +1,22 @@
 <!-- set up a list of zwipps -->
 
-<ul class="list-group">
-  <% @zwipps.each do |z| %>
+<%- if @zwipps.count.zero? %>
+
+  <ul class="list-group">
     <li class="list-group-item">
-      <%- @zwipp, @user = z, z.user %>
-      <%= render 'shared/zwipp' %>
+      <h4 class="list-group-item-heading">No zwipps to see here!</h4>
     </li>
-  <% end %>
-</ul>
+  </ul>
+
+<%- else %>
+
+  <ul class="list-group">
+    <% @zwipps.each do |z| %>
+      <li class="list-group-item">
+        <%- @zwipp, @user = z, z.user %>
+        <%= render 'shared/zwipp' %>
+      </li>
+    <% end %>
+  </ul>
+
+<%- end %>
