@@ -20,22 +20,28 @@ sally.zwipps.create([
   { text: 'Meh eu mlkshk, fanny pack microdosing nesciunt adipisicing tumeric food truck pour-over crucifix.' },
 ])
 
+susie.zwipps.create([
+  { text: 'Odio activated charcoal flannel man braid, distillery banjo veniam sartorial irony listicle.' },
+  { text: 'Exercitation pop-up 3 wolf moon paleo jean shorts wolf.' }
+])
+
 bobby.zwipps.create([
-  { text: 'Pinterest salvia plaid, tumblr brunch distillery aute yuccie yr vaporware culpa.' },
-  { text: 'Actually nostrud mustache copper mug.' },
-  { text: 'Kitsch aliqua disrupt gochujang irony.' }
+  { text: 'Pinterest salvia plaid, tumblr brunch distillery aute yuccie yr vaporware culpa.' }
 ])
 
 susie.zwipps.create([
-  { text: 'Mixtape chambray brooklyn, mustache lyft id craft beer letterpress kickstarter iceland cred fashion axe.' },
-  { text: 'Odio activated charcoal flannel man braid, distillery banjo veniam sartorial irony listicle.' },
-  { text: 'Exercitation pop-up 3 wolf moon paleo jean shorts wolf.' }
+  { text: 'Mixtape chambray brooklyn, mustache lyft id craft beer letterpress kickstarter iceland cred fashion axe.' }
 ])
 
 jimmy.zwipps.create([
   { text: 'Nihil mumblecore austin commodo, dolor gochujang offal neutra eiusmod lumbersexual migas minim drinking vinegar.' },
   { text: 'Thundercats VHS green juice truffaut poke raclette, incididunt poutine ullamco meditation mumblecore in hexagon.' },
   { text: 'Ex truffaut tempor, knausgaard blue bottle thundercats cronut mixtape twee sartorial meggings.' }
+])
+
+bobby.zwipps.create([
+  { text: 'Actually nostrud mustache copper mug.' },
+  { text: 'Kitsch aliqua disrupt gochujang irony.' }
 ])
 
 Follow.create([
