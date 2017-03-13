@@ -1,4 +1,4 @@
-[Zwipper](https://zwipper.heroku.com) is a demo app/basic clone of Twitter. To log in, use `sally@test.com` with password `testing`.
+[Zwipper](https://zwipper.herokuapp.com) is a demo app/basic clone of Twitter. To log in, use `sally@test.com` with password `testing`.
 
 Feedback welcome!
 
